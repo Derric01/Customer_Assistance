@@ -1,26 +1,78 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --primary-color: #8b5cf6; /* Purple 600 */
+  --primary-light: #ddd6fe; /* Purple 200 */
+  --primary-dark: #6d28d9; /* Purple 700 */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 0, 0, 0;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* Ensure message bubbles have the right colors */
+.bg-purple-600 {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-purple-100 {
+  background-color: var(--primary-light) !important;
+}
+
+.bg-purple-50 {
+  background-color: #f5f3ff !important;
+}
+
+.text-purple-600 {
+  color: var(--primary-color) !important;
+}
+
+.text-purple-800 {
+  color: var(--primary-dark) !important;
+}
+
+.hover\:bg-purple-700:hover {
+  background-color: var(--primary-dark) !important;
+}
+
+.border-l-purple-500 {
+  border-left-color: var(--primary-color) !important;
+}
+
+/* Ensure text is visible in input field */
+textarea {
+  color: #1f2937 !important; /* Gray 800 */
+}
+
+/* Style for active conversation */
+.bg-purple-100.border-l-purple-500 {
+  background-color: #f3f0ff !important;
+  border-left: 4px solid var(--primary-color) !important;
+}
+
+/* Custom button styles */
+button.bg-purple-600 {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+button.bg-purple-600:hover {
+  background-color: var(--primary-dark) !important;
+}
+
+/* Ensure toggles are properly colored */
+.peer-checked\:bg-purple-600.peer-checked\:bg-purple-600 {
+  background-color: var(--primary-color) !important;
 }
