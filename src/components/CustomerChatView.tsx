@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { FiSend, FiMessageSquare } from "react-icons/fi";
 import { User, Message, Chat, ChatType } from "../types";
-import { useChatService } from "../lib/chatService";
+import { useChatService } from "../lib/useChatService";
 import { v4 as uuidv4 } from "uuid";
 
 interface CustomerChatViewProps {

@@ -58,7 +58,20 @@ function generateAnalyticsData() {
 }
 
 export default function AnalyticsPage() {
-  const [analyticsData, setAnalyticsData] = useState(null);
+  // Define proper type for analytics data
+  interface AnalyticsData {
+    totalConversations: number;
+    averageResponseTime: string;
+    resolutionRate: string;
+    escalationRate: string;
+    conversationsByDay: { date: string; count: number; }[];
+    topIntents: { intent: string; count: number; percentage: number; }[];
+    knowledgeBaseUsage: number;
+    avgMessagesPerConversation: string;
+    activeUsers: number;
+  }
+  
+  const [analyticsData, setAnalyticsData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshTime, setRefreshTime] = useState("");
 
@@ -75,9 +88,8 @@ export default function AnalyticsPage() {
       setRefreshTime(`${now.toLocaleDateString()} at ${now.toLocaleTimeString()}`);
     }, 800);
   }, []);
-
   // Format numbers with commas
-  const formatNumber = (num) => {
+  const formatNumber = (num: number | undefined | null): string => {
     return num?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") || "0";
   };
 

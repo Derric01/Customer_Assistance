@@ -27,10 +27,8 @@ export async function POST(request: NextRequest) {
         source: "System",
         confidence: 100
       }, { status: 400 });
-    }
-
-    // Check if API key is configured
-    if (!GEMINI_API_KEY || GEMINI_API_KEY === "AIzaSyBXvzT050piDZF-f5vwU3DSa4sDIzuS5q0") {
+    }    // Check if API key is configured
+    if (!GEMINI_API_KEY || GEMINI_API_KEY === "your-gemini-api-key-here") {
       console.error("Gemini API key is not configured");
       return NextResponse.json({
         answer: "The Gemini API is not configured. Please add your API key to the .env.local file. You can get a key from https://ai.google.dev/",

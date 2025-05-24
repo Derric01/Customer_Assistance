@@ -1588,18 +1588,25 @@ export async function POST(request: NextRequest) {
     
     // Record query for analytics
     try {
-      // Import the recordQuery function
-      const { recordQuery } = await import('../analytics/route');
-      
-      // Record this query in analytics
-      recordQuery({
+      // Create analytics data directly
+      const analyticsData = {
         timestamp: Date.now(),
         query: question,
         responseSource: result.source,
         confidence: result.confidence || 0,
         intent: intent.intent,
         successful: result.confidence ? result.confidence > 60 : false
-      });
+      };
+      
+      // In a production app, this would send to a database or analytics service
+      console.log('Analytics data:', analyticsData);
+      
+      // Optional: send to analytics endpoint
+      fetch('/api/analytics', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(analyticsData)
+      }).catch(e => console.error('Error sending analytics:', e));
     } catch (error) {
       // Non-blocking - just log if analytics recording fails
       console.error('Failed to record analytics:', error);

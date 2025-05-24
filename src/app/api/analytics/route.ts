@@ -20,8 +20,8 @@ interface IntentStats {
 const queryHistory: QueryRecord[] = [];
 const MAX_HISTORY_SIZE = 1000;
 
-// Add a query to the analytics store
-export function recordQuery(record: QueryRecord) {
+// Add a query to the analytics store - not exported to avoid Next.js API route type errors
+function recordQuery(record: QueryRecord) {
   queryHistory.unshift(record);
   if (queryHistory.length > MAX_HISTORY_SIZE) {
     queryHistory.pop();
@@ -29,6 +29,7 @@ export function recordQuery(record: QueryRecord) {
 }
 
 export async function GET(request: NextRequest) {
+  // ...rest of the existing GET function
   try {
     const { searchParams } = new URL(request.url);
     const timeFrame = searchParams.get('timeFrame') || '24h';
