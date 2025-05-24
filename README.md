@@ -1,11 +1,9 @@
 
-
----
-# AI Support Portal 🤖
+# AI Support Portal 🚀
 
 An intelligent customer support platform built with **Next.js 14+**, **Tailwind CSS**, and integrated with the **Google Gemini API** to empower support agents with instant, context-aware assistance.
 
-🔗 **Live Demo**: botassistaance.vercel.app
+🔗 **Live Demo**: [https://botassistance.vercel.app](https://botassistance.vercel.app)
 
 ---
 
@@ -16,6 +14,7 @@ The AI Support Portal is a modern, responsive customer support platform designed
 ---
 
 ## 📦 Project Structure
+
 
 ```
 ai-support-portal/
