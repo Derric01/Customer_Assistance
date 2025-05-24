@@ -5,7 +5,7 @@
 
 An intelligent customer support platform built with **Next.js 14+**, **Tailwind CSS**, and integrated with the **Google Gemini API** to empower support agents with instant, context-aware assistance.
 
-🔗 **Live Demo**: [https://botassistance.vercel.app](https://botassistance.vercel.app)
+🔗 **Live Demo**: botassistaance.vercel.app
 
 ---
 
