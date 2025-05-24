@@ -1,185 +1,148 @@
-# 🤖 AI Support Portal - Customer Support Assistant
+```markdown
+# 🤖 AI Support Portal
 
-A unified AI-assisted customer support platform built with **Next.js** and **Tailwind CSS**, allowing support agents to manage both **customer queries** and **AI-generated replies** from a single interface.
+An intelligent customer support platform built with **Next.js 14+, Tailwind CSS**, and integrated with **Google Gemini API** to empower agents with instant, context-aware assistance.
 
-## 🌟 Features
-
-- ✅ Single-panel interface: Handle both customer and AI chatbot replies in one place  
-- 🤖 AI assistant uses internal knowledge (FAQs, rulebooks, docs) to answer accurately  
-- ✍️ Support agents can forward customer messages to AI and then edit/send responses  
-- 🚦 Smart escalation suggestions from the AI with reason and routing  
-- 🧠 Intent classification for message context (e.g., `"billing"`, `"technical_issue"`)  
-- 🪄 All messages are traceable and editable before being sent back to the customer  
-
-## Getting Started
-
-First, create a `.env.local` file with your API keys (see `example.env.local`):
-
-```
-GEMINI_API_KEY=your-api-key-here
-```
-
-Then run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-## Test the Chat Functionality
-
-Visit [http://localhost:3000/test](http://localhost:3000/test) to test if the chat functionality is working properly.
-
-## 🗂️ Project Structure
-
-- `/src/app/api` - API routes for AI, chat, and knowledge base
-- `/src/components` - UI components including chat interface
-- `/src/contexts` - React contexts including ChatContext for state management
-- `/src/data` - Knowledge base data (FAQs, docs, rulebook)
-- `/src/lib` - Utility functions and services
-
-## 🧠 AI Assistant Response Format
-
-Example response from the AI:
-
-```json
-{
-  "answer": "It appears you were charged twice. I will escalate this to the billing team.",
-  "intent": "billing",
-  "escalation_needed": true,
-  "reason": "Duplicate charge detected",
-  "escalation_path": "Agent → Billing Team → Finance"
-}
-```
-
-## Getting Started
-
-First, create a `.env.local` file with your API keys (see `example.env.local`):
-
-```
-GEMINI_API_KEY=your-api-key-here
-```
-
-Then run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
->>>>>>> ce4bce6 (Fix AI support portal: Clean structure and fix ChatContext dependencies)
-```
+🔗 **Live Demo**: [botassistaance.vercel.app](https://botassistaance.vercel.app)
 
 ---
 
-<<<<<<< HEAD
-## 🧠 AI Assistant Response Format
+## 📦 Project Structure
 
-Example response from the AI:
-=======
-## Test the Chat Functionality
-
-Visit [http://localhost:3000/test](http://localhost:3000/test) to test if the chat functionality is working properly.
-
-## Project Structure
-
-- `/src/app/api` - API routes for AI, chat, and knowledge base
-- `/src/components` - UI components including chat interface
-- `/src/contexts` - React contexts including ChatContext for state management
-- `/src/data` - Knowledge base data (FAQs, docs, rulebook)
-- `/src/lib` - Utility functions and services
->>>>>>> ce4bce6 (Fix AI support portal: Clean structure and fix ChatContext dependencies)
-
-```json
-{
-  "answer": "It appears you were charged twice. I will escalate this to the billing team.",
-  "intent": "billing",
-  "escalation_needed": true,
-  "reason": "Duplicate charge detected",
-  "escalation_path": "Agent → Billing Team → Finance"
-}
 ```
 
+ai-support-portal/
+├── .env.local                 # Local environment variables
+├── .env                       # Env template (no secrets)
+├── .eslintrc.js               # ESLint config
+├── next.config.js             # Next.js config
+├── package.json               # Scripts & dependencies
+├── tailwind.config.js         # Tailwind theme config
+├── tsconfig.json              # TypeScript config
+│
+├── public/                    # Static assets
+│   └── favicon.ico, vercel.svg
+│
+├── src/
+│   ├── app/
+│   │   ├── api/               # API routes
+│   │   │   ├── ai/            # AI response
+│   │   │   ├── analytics/     # Analytics endpoint
+│   │   │   ├── ask/           # Handle user queries
+│   │   │   ├── chat/          # Chat messages
+│   │   │   └── classify/      # Intent classification
+│   │   ├── analytics/         # Dashboard page
+│   │   ├── chat/              # Chat UI
+│   │   ├── knowledge/         # Knowledge base
+│   │   ├── test/              # Test/debug UI
+│   │   ├── layout.tsx         # App layout
+│   │   ├── page.tsx           # Homepage
+│   │   └── globals.css        # Global styles
+│
+│   ├── components/            # Reusable UI blocks
+│   │   ├── ChatComponent.tsx       # Chat UI
+│   │   ├── SupportAgentView\.tsx   # AI response console
+│   │   ├── CustomerChatView\.tsx   # Customer messages
+│   │   ├── AnalyticsCard.tsx      # Analytics stats
+│   │   ├── AnalyticsChart.tsx     # Analytics graphs
+│   │   ├── AppNavigation.tsx      # Navbar
+│   │   ├── KnowledgeBaseManager.tsx # Docs editor
+│   │   ├── MessageList.tsx        # Chat display
+│   │   ├── SourceTag.tsx          # Reference tag
+│   │   └── LoadingSpinner.tsx     # Spinner
+│
+│   ├── contexts/
+│   │   └── ChatContext.tsx     # Global state for chat
+│
+│   ├── data/                   # Local knowledge base
+│   │   ├── docs.ts             # Docs content
+│   │   ├── faq.ts              # FAQs
+│   │   └── rulebook.ts         # Rules & policies
+│
+│   ├── lib/                    # Helper logic
+│   │   ├── chatService.tsx
+│   │   ├── getAIResponse.ts
+│   │   ├── classifyIntent.ts
+│   │   ├── analyticsService.ts
+│   │   └── utils.ts
+│
+│   └── types/
+│       └── index.ts            # TypeScript types
+
+├── styles/
+│   └── analytics.module.css   # Scoped styles
+
+````
+
 ---
 
-## 🛠️ Technology Stack
+## 🚀 Features
 
-- **Frontend:** Next.js (App Router), Tailwind CSS, Framer Motion  
-- **Backend:** Local API routes using Node.js (via Next.js)  
-- **State Management:** React Hooks (`useState`, `useEffect`)  
-- **AI Source:** Gemini API or simulated local response using internal docs  
-- **Hosting:** Vercel or custom Node.js server  
+- ✅ **AI-Powered Responses**  
+  Real-time intelligent replies powered by **Google Gemini**, routed via custom API.
+
+- 🧠 **Local + API Knowledge Base**  
+  Dynamically pulls answers from FAQs, rules, and internal docs.
+
+- 📊 **Support Analytics Dashboard**  
+  Tracks queries, resolutions, and category breakdowns.
+
+- 💬 **Integrated Chat Panel**  
+  Single-pane UI for support agents to view customer chats, forward to AI, and send formal replies.
+
+- 🌓 **Fully Responsive**  
+  Mobile-optimized, with dark/light theme toggle.
 
 ---
 
-## 🚀 Getting Started
+## ⚙️ Installation
 
-1. **Clone the repository**
+1. **Clone the repo**
    ```bash
-   git clone https://github.com/your-org/customer-support-ai.git
-   cd customer-support-ai
-   ```
+   git clone https://github.com/your-username/ai-support-portal.git
+   cd ai-support-portal
+````
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
-3. **Run the dev server**
+3. **Add environment variables**
+
+   Create a `.env.local` file:
+
+   ```bash
+   GOOGLE_API_KEY=your_gemini_api_key
+   ```
+
+4. **Run locally**
+
    ```bash
    npm run dev
    ```
 
-4. **Access the app**
-   ```
-   http://localhost:3000/support
-   ```
+---
+
+## 🧪 Usage Flow
+
+1. Customer sends a query via the **customer chat view**.
+2. Support agent sees the query in the **agent interface**.
+3. Agent clicks **"Ask AI"** to get a response based on your documentation.
+4. Agent forwards the AI-generated message formally to the customer.
 
 ---
 
-## 🧪 Example Use Case
+## 📹 Demo Note
 
-**Customer:**  
-> “Why did I get charged twice?”
+> 📌 **Note**:
+> Deploying this project initially posed some configuration challenges, especially with API routes and environment setup.
+> To help understand the interface and working, I’ve included a short demo walkthrough.
 
-**Support Agent:**  
-Clicks **"Ask AI"**
+🔗 **Live Project**: [https://botassistaance.vercel.app](https://botassistaance.vercel.app)
 
-**AI Assistant Response:**  
-```json
-{
-  "answer": "You were charged twice due to overlapping subscriptions. I will escalate this to billing.",
-  "intent": "billing",
-  "escalation_needed": true,
-  "reason": "Overlap in subscription cycles",
-  "escalation_path": "Agent → Billing → Finance Lead"
-}
+---
+
 ```
-
-**Agent:**  
-Reviews → edits → sends formal response back to customer.
-
----
-
-## ⚠️ Deployment Notes
-
-> ❌ Deployment currently has **issues** on platforms like Vercel:
-- Serverless cold starts delay AI replies  
-- API routes may break with **Edge Functions**  
-- Environment variables may not resolve correctly during runtime  
-- Streaming responses from AI can be unstable in serverless mode  
-
-### ✅ Recommended Workaround:
-- Use a **Node.js custom server**  
-- Or deploy on **Render**, **Railway**, or a **VPS**
-
----
-
-## 📌 Summary
-
-This AI-powered support system offers:
-- ✨ Seamless chat flow between agent, customer, and AI  
-- ✨ Editable AI responses with intent and escalation insight  
-- ✨ All-in-one interface for rapid and accurate support  
-
-> 🎯 No dual roles. No confusion. Just one unified view for handling support — efficiently.
+```
