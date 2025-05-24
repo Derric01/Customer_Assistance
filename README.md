@@ -1,8 +1,6 @@
-# 🤖 Customer Support AI Assistant – All-in-One Chat Portal
+# 🤖 AI Support Portal - Customer Support Assistant
 
-A unified AI-assisted customer support platform built with **Next.js** and **Tailwind CSS**, allowing support agents to manage both **customer queries** and **AI-generated replies** from a single interface — all in one box.
-
----
+A unified AI-assisted customer support platform built with **Next.js** and **Tailwind CSS**, allowing support agents to manage both **customer queries** and **AI-generated replies** from a single interface.
 
 ## 🌟 Features
 
@@ -13,34 +11,84 @@ A unified AI-assisted customer support platform built with **Next.js** and **Tai
 - 🧠 Intent classification for message context (e.g., `"billing"`, `"technical_issue"`)  
 - 🪄 All messages are traceable and editable before being sent back to the customer  
 
----
+## Getting Started
 
-## 🗂️ Folder Structure
+First, create a `.env.local` file with your API keys (see `example.env.local`):
 
 ```
-src/
-├── app/
-│   └── support/                # Unified chat interface
-├── components/
-│   ├── UnifiedChatPanel.tsx   # Main message board
-│   ├── MessageInput.tsx       # Message input field
-│   └── MessageBubble.tsx      # Chat message UI
-├── lib/
-│   ├── classifyIntent.ts      # Classify message intent
-│   ├── getLocalContext.ts     # Fetch docs/FAQ for context
-│   └── formatEscalation.ts    # Structure AI escalation data
-├── api/
-│   ├── classify/route.ts      # POST /api/classify
-│   ├── chat/route.ts          # POST /api/chat (AI logic)
-├── styles/
-│   └── globals.css            # Tailwind config and global styles
+GEMINI_API_KEY=your-api-key-here
 ```
 
----
+Then run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+## Test the Chat Functionality
+
+Visit [http://localhost:3000/test](http://localhost:3000/test) to test if the chat functionality is working properly.
+
+## 🗂️ Project Structure
+
+- `/src/app/api` - API routes for AI, chat, and knowledge base
+- `/src/components` - UI components including chat interface
+- `/src/contexts` - React contexts including ChatContext for state management
+- `/src/data` - Knowledge base data (FAQs, docs, rulebook)
+- `/src/lib` - Utility functions and services
 
 ## 🧠 AI Assistant Response Format
 
 Example response from the AI:
+
+```json
+{
+  "answer": "It appears you were charged twice. I will escalate this to the billing team.",
+  "intent": "billing",
+  "escalation_needed": true,
+  "reason": "Duplicate charge detected",
+  "escalation_path": "Agent → Billing Team → Finance"
+}
+```
+
+## Getting Started
+
+First, create a `.env.local` file with your API keys (see `example.env.local`):
+
+```
+GEMINI_API_KEY=your-api-key-here
+```
+
+Then run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+>>>>>>> ce4bce6 (Fix AI support portal: Clean structure and fix ChatContext dependencies)
+```
+
+---
+
+<<<<<<< HEAD
+## 🧠 AI Assistant Response Format
+
+Example response from the AI:
+=======
+## Test the Chat Functionality
+
+Visit [http://localhost:3000/test](http://localhost:3000/test) to test if the chat functionality is working properly.
+
+## Project Structure
+
+- `/src/app/api` - API routes for AI, chat, and knowledge base
+- `/src/components` - UI components including chat interface
+- `/src/contexts` - React contexts including ChatContext for state management
+- `/src/data` - Knowledge base data (FAQs, docs, rulebook)
+- `/src/lib` - Utility functions and services
+>>>>>>> ce4bce6 (Fix AI support portal: Clean structure and fix ChatContext dependencies)
 
 ```json
 {
